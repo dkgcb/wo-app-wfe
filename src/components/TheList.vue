@@ -14,7 +14,7 @@ function increment() {
 // lifecycle hooks
 onMounted(() => {
   console.log(`The initial count is ${count.value}.`)
-  console.log(`The array length is ${thelist.length}.`)
+  console.log(`The array length is ${requestsData.length}.`)
 })
 
 

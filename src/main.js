@@ -7,8 +7,14 @@ import "bootstrap/dist/css/bootstrap.css"
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "bootstrap/dist/js/bootstrap.js"
 
+const Home = { template: '<div>Home</div>' }
+const About = { template: '<div>About</div>' }
+const Settings = { template: '<div>Settings</div>' }
+
 const routes = [
-  // TODO
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+  { path: '/settings', component: Settings },
 ];
 
 const router = VueRouter.createRouter({

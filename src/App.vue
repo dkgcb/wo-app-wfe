@@ -11,11 +11,12 @@ import TheSearch from './components/TheSearch.vue'
 <template>
   <the-navigation/>
   <div class="container"> 
-    <div class="row">
-      <!-- <the-action-menu/> -->
+    <!--<div class="row">
+       <the-action-menu/> 
       <the-search/>
       <the-list/>
-    </div>
+    </div>-->
+    <router-view></router-view>
   </div>
 </template>
 
