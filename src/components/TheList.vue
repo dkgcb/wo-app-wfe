@@ -1,58 +1,91 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-import requestsData from './../assets/datasample.json'
+<script>
 
-// reactive state
-const count = ref(3)
+import MyTable from './MyTable.vue'
 
-// functions that mutate state and trigger updates
-function increment() {
-  count.value++
+
+export default {
+  components: {
+    MyTable
+  },
+  data() {
+    return {
+      count: 0,
+      // customColumnHeaders: ['AppID','Requester','Title','Description','Submitted','Status','Assigned'],
+      customColumnHeaders: [
+          {
+            columnHeaderName: "App ID",
+            customColumnData: "appid"
+          },
+          {
+            columnHeaderName: "Requester",
+            customColumnData: "requester"
+          },
+          {
+            columnHeaderName: "Title",
+            customColumnData: "title"
+          },
+          {
+            columnHeaderName: "Description",
+            customColumnData: "description"
+          },
+          {
+            columnHeaderName: "Submitted",
+            customColumnData: "submitted"
+          },
+          {
+            columnHeaderName: "Status",
+            customColumnData: "status"
+          },
+          {
+            columnHeaderName: "Assigned",
+            customColumnData: "assigned"
+          }
+
+      ],
+       
+      customData: [
+                    {
+                      "appid": 1234567,
+                      "requester": "Doe, John",
+                      "title": "Lorem ipsum dolor sit amet",
+                      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut dolor interdum, porttitor quam vel, interdum lectus. Phasellus luctus consequat massa. Nulla tincidunt ut tellus et vulputate. Nunc in erat est. Aenean sem augue, rutrum eu scelerisque in, imperdiet a arcu. Cras vitae lorem vestibulum, sodales dui non, tempor turpis. Nunc porta cursus rutrum. Duis vitae ullamcorper leo, sit amet commodo justo. Vestibulum eget leo maximus, luctus mi bibendum, convallis tortor.",
+                      "submitted": "11/24/2022 3:35 PM",
+                      "status": "in-progress",
+                      "assigned": "Doet, Jan"
+                    },
+                    {
+                      "appid": 1234567,
+                      "requester": "Doe, John",
+                      "title": "Lorem ipsum dolor sit amet",
+                      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut dolor interdum, porttitor quam vel, interdum lectus. Phasellus luctus consequat massa. Nulla tincidunt ut tellus et vulputate. Nunc in erat est. Aenean sem augue, rutrum eu scelerisque in, imperdiet a arcu. Cras vitae lorem vestibulum, sodales dui non, tempor turpis. Nunc porta cursus rutrum. Duis vitae ullamcorper leo, sit amet commodo justo. Vestibulum eget leo maximus, luctus mi bibendum, convallis tortor.",
+                      "submitted": "11/25/2022 4:15 PM",
+                      "status": "in-progress",
+                      "assigned": "Doe, Jannie"
+                    },
+                    {
+                      "appid": 1234567,
+                      "requester": "Doe, John",
+                      "title": "Lorem ipsum dolor sit amet",
+                      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut dolor interdum, porttitor quam vel, interdum lectus. Phasellus luctus consequat massa. Nulla tincidunt ut tellus et vulputate. Nunc in erat est. Aenean sem augue, rutrum eu scelerisque in, imperdiet a arcu. Cras vitae lorem vestibulum, sodales dui non, tempor turpis. Nunc porta cursus rutrum. Duis vitae ullamcorper leo, sit amet commodo justo. Vestibulum eget leo maximus, luctus mi bibendum, convallis tortor.",
+                      "submitted": "11/25/2022 4:35 PM",
+                      "status": "in-progress",
+                      "assigned": "Doeem, Jane"
+                    }
+                  ]
+    }
+  },
 }
-
-
-// lifecycle hooks
-onMounted(() => {
-  console.log(`The initial count is ${count.value}.`)
-  console.log(`The array length is ${requestsData.length}.`)
-})
-
-
 </script> 
 
 <template>
-   <div class="row g-3">
-   <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Number</th>
-          <th scope="col">Requester</th>
-          <th scope="col">Title</th>
-          <th scope="col">Description</th>
-          <th scope="col">Submitted</th>
-          <th scope="col">Status</th>
-          <th scope="col">Assigned</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in requestsData" v-bind:key="item.appid">
-          <td scope="col">{{item.appid}}</td>
-          <td scope="col">{{item.requester}}</td>
-          <td scope="col">{{item.title}}</td>
-          <td scope="col">{{item.description}}</td>
-          <td scope="col">{{item.submitted}}</td>
-          <td scope="col">{{item.status}}</td>
-          <td scope="col">{{item.assigned}}</td>
-        </tr>
-        
-      </tbody>
-    </table>
-    </div>
+   <div>
+    <my-table :custom_data="customData" :custom_columns="customColumns" :custom_column_headers="customColumnHeaders" :custom_options="customOptions" />
+   </div>
 </template> 
 
 
 <style>
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+/* @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"); */
 .light-green {
   height: 108px;
   background-color: rgba(0, 128, 0, 0.12);

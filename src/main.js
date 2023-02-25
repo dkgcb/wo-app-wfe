@@ -3,9 +3,9 @@ import App from './App.vue'
 import { createPinia } from 'pinia' // Import
 import * as VueRouter from 'vue-router'
 
-import "bootstrap/dist/css/bootstrap.css"
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import "bootstrap/dist/js/bootstrap.js"
+// import "bootstrap/dist/css/bootstrap.css"
+// import 'bootstrap-icons/font/bootstrap-icons.css'
+// import "bootstrap/dist/js/bootstrap.js"
 
 const Home = { template: '<div>Home</div>' }
 const About = { template: '<div>About</div>' }
