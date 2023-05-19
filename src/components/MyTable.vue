@@ -1,30 +1,10 @@
-<script>
-// import MyTableHeader from './MyTableHeader.vue'
-export default {
-  props: ['title', 'custom_data', 'custom_columns', 'custom_column_headers', 'custom_options'],
-  data() {
-    return {
-      count: 0,
-    }
-  },
-  methods: {
-
-  },
-
-  onmount: function(){
-    
-  }
-  
-  
-}
-</script> 
-
 <template>
-   <div>
-   <table border="1">
+   <div>  {{title}} World!
+   <table class="table">
+  
       <thead>
           <tr>
-            <th v-for="item in custom_column_headers" :key="item.columnHeaderName">{{item.columnHeaderName}}</th>
+            <th v-for="item in customColumns" :key="item.columnHeaderName">{{item.columnHeaderName}}</th>
           </tr>
       </thead>
       <tbody>
@@ -36,8 +16,29 @@ export default {
       </tbody>
     </table>
     </div>
-
 </template> 
+
+<script setup>
+
+/*
+  Imports
+  */
+  import { ref } from 'vue'
+
+/*
+  Data
+  */
+  // const title = ref("This is my title")
+
+/*
+  table data, 'customData', 'customColumns'
+*/
+  const tableProps = defineProps(['title','customColumns','customData'])
+
+  console.log(tableProps.title)
+  console.log(tableProps.customData)
+   
+</script> 
 
 
 <style>

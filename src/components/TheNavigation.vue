@@ -1,9 +1,4 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
- <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="">Work Order System</a>
@@ -25,10 +20,13 @@ import { RouterLink, RouterView } from 'vue-router'
             </div>
         </div>
     </nav>
-</div>
 </template>
 
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
 
 <style>
+
 
 </style>
