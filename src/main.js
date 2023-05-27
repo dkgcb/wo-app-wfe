@@ -1,32 +1,49 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue/dist/vue.esm-bundler';
 import App from './App.vue'
 import { createPinia } from 'pinia' // Import
-import * as VueRouter from 'vue-router'
+import router from './router' // will automatically look for index.js
 
-import "bootstrap/dist/css/bootstrap.css"
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import "bootstrap/dist/js/bootstrap.js"
+import PrimeVue from 'primevue/config';
+import Button from "primevue/button";
+import InputText from  "primevue/inputtext";
+import Toast from "primevue/toast";
+import ToastService from "primevue/toastservice";
+// import "bootstrap/dist/css/bootstrap.css"
+// import 'bootstrap-icons/font/bootstrap-icons.css'
+// import "bootstrap/dist/js/bootstrap.js"
+// import axios from 'axios';
 
-const Home = { template: '<div>Home</div>' }
-const About = { template: '<div>About</div>' }
-const Settings = { template: '<div>Settings</div>' }
+import 'primevue/resources/themes/bootstrap4-light-blue/theme.css';     
+import 'primevue/resources/primevue.min.css';
+import 'primeicons/primeicons.css';
+import '/node_modules/primeflex/primeflex.css'
 
-const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
-  { path: '/settings', component: Settings },
-];
 
-const router = VueRouter.createRouter({
-  history: VueRouter.createWebHistory(),
-  routes,
-});
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import Textarea from 'primevue/textarea';
+
+
+
+// import { Button } from 'bootstrap';
+// import InputText from 'primevue/inputtext';
+// import { Toast } from 'bootstrap';
 
 const pinia = createPinia()
 const app = createApp(App)
 
 app.use(router)
 app.use(pinia) // Create the root store
+app.use(PrimeVue)
+app.use(ToastService)
+// app.use(axios)
+
+app.component('Button', Button)
+app.component('InputText', InputText)
+app.component('Toast', Toast)
+app.component('DataTable', DataTable)
+app.component('Column', Column)
+app.component('Textarea', Textarea)
 app.mount('#app')
 
 

@@ -1,38 +1,44 @@
-<template>
-  <div>
-    <TheNavigation />
-    <div class="row">
-      <TheList />
-    </div>
+<template>       
+<div> 
+  <the-navigation></the-navigation>
+  <router-view></router-view>
  
-    <router-view></router-view>
-  </div>
+ </div>
 </template>
 
 <script setup>
 /*
   Imports
   */
+
+
 import TheNavigation from './components/TheNavigation.vue'
-import TheList from './components/TheList.vue'
+import TheList from './components/TheDashboard.vue'
+
 
 </script>
 
 <style>
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  color: #2c3e50;
-}
+  /* color: #2c3e50; */
+} 
 
-/* body {
+body {
   width: 50%;
   margin: 0 auto;
-  background-color: #a06969;
+  /* background-color: #a06969;
   padding: 20px 20px 20px 20px;
-  border: 1px solid rgb(170, 33, 33);
+  border: 1px solid rgb(170, 33, 33); */
 
-} */
+}
 </style>

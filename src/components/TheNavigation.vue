@@ -11,10 +11,10 @@
                         <RouterLink to="/">Home</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink to="/settings">settings</RouterLink>
+                        <RouterLink to="/settings">Settings</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink to="/about">about</RouterLink>
+                        <RouterLink to="/about">About</RouterLink>
                     </li>
                 </ul>
             </div>
