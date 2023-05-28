@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import TheDashboard from '.././components/TheDashboard.vue'
 
-const Home = { template: '<div>Home</div>' }
+// const Home = { template: '<div>Home</div>' }
 const About = { template: '<div>About</div>' }
 const Settings = { template: '<div>Settings</div>' }
 const Item = { template: '<div>Item</div>' }
@@ -9,7 +10,7 @@ const routes = [
   { 
     path: '/', 
     name: 'home',
-    component: Home 
+    component: TheDashboard 
   },
   { 
     path: '/about', 

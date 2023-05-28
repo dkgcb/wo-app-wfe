@@ -1,7 +1,7 @@
 <template>
     <div class="grid">
-            <div class="col">
-                   <DataTable :value="workOrders" tableStyle="min-width: 50rem">
+            <div class="col">{{store.workOrders}}
+                   <DataTable :value="store.workOrders" tableStyle="min-width: 50rem">
                     <Column field="item_id" header="Work Order ID"></Column>
                     <Column field="item_name" header="Subject"></Column>
                     <Column field="descr" header="Description"></Column>
@@ -11,7 +11,7 @@
                     <Column field="status" header="Status"></Column>
                    </DataTable>
             </div>
-    </div>
+    </div>{{store.doubleCount}}
 
 </template> 
 
@@ -19,31 +19,29 @@
 /*
   imports
 */
-import axios from 'axios';
+
+import { useWorkOrderStore } from '.././store/workorderStore';
 import { ref, onMounted } from 'vue';
 // import workOrders from '../assets/datasample.json';
 
+const store = useWorkOrderStore();
+// const x = workOrderStore.increment();
+console.log(store.increment())
+
 onMounted(() => {
-    axios.get('http://127.0.0.1:5000/api/items')
-      .then(function (response) {
-        // handle success
-        // console.log(response.data.items);
-        // response.data.items.forEach(element => {
-        //   workOrders.push(element);
-        // });
-        workOrders.value = response.data.items;
-        console.log(workOrders);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
+  store.getWorkOrderList
 });
 
-const workOrders = ref([]);
+/*
+Store
+*/
 
+setTimeout(() => {
+  console.log(store.increment())
+}, 1000)
+
+
+
+// console.log(workOrderStore.workOrders);
 
 </script>

@@ -13,7 +13,7 @@
 
 
 import TheNavigation from './components/TheNavigation.vue'
-import TheList from './components/TheDashboard.vue'
+// import TheList from './components/TheDashboard.vue'
 
 
 </script>
