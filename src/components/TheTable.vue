@@ -1,6 +1,7 @@
 <template>
     <div class="grid">
-            <div class="col">{{store.workOrders}}
+        <button type="button" @click="increment" name="Click">Click</button>
+            <div class="col">{{store.doubleCount}}
                    <DataTable :value="store.workOrders" tableStyle="min-width: 50rem">
                     <Column field="item_id" header="Work Order ID"></Column>
                     <Column field="item_name" header="Subject"></Column>
@@ -11,7 +12,7 @@
                     <Column field="status" header="Status"></Column>
                    </DataTable>
             </div>
-    </div>{{store.doubleCount}}
+    </div> 
 
 </template> 
 
@@ -22,26 +23,22 @@
 
 import { useWorkOrderStore } from '.././store/workorderStore';
 import { ref, onMounted } from 'vue';
-// import workOrders from '../assets/datasample.json';
 
-const store = useWorkOrderStore();
-// const x = workOrderStore.increment();
-console.log(store.increment())
-
-onMounted(() => {
-  store.getWorkOrderList
-});
 
 /*
 Store
 */
 
-setTimeout(() => {
-  console.log(store.increment())
-}, 1000)
+const store = useWorkOrderStore();
 
+/*
+  Hooks
+*/
 
+onMounted(() => {
+  store.getWorkOrderList();
+  store.increment();
+});
 
-// console.log(workOrderStore.workOrders);
 
 </script>
