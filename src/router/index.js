@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import TheDashboard from '.././components/TheDashboard.vue'
+import TheDashboard from '@/components/TheDashboard.vue'
 
-import Item from '.././components/TheItem.vue'
-import TheTable from '.././components/TheTable.vue'
+import Item from '@/components/TheItem.vue'
+import TheForm from '@/components/TheForm.vue'
+import TheTable from '@/components/TheTable.vue'
 
 // const Home = { template: '<div>Home</div>' }
 const About = { template: '<div>About</div>' }
@@ -31,7 +32,12 @@ const routes = [
     component: Item 
   },
   { 
-    path: '/items)', 
+    path: '/item/new', 
+    name: 'newItem',
+    component: TheForm 
+  },
+  { 
+    path: '/items', 
     name: 'items',
     component: TheTable
   },

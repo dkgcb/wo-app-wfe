@@ -16,6 +16,9 @@
         <div class="col">
             <Button label="Submit" type="submit" />
         </div>
+        <div class="col">
+            <Button label="Cancel" type="cancel"  />
+        </div>
     </form>
   </div>
 </template> 
@@ -25,44 +28,33 @@
   imports
 */
 import axios from 'axios';
-// import Learn from './Learn.vue'
 import { ref } from 'vue';
+import { useItemsStore } from '@/stores/itemsStore';
 
+/*
+Store
+*/
+const storeItems = useItemsStore();
+
+/*
+  Hooks
+*/
 let formData = ref({});
 
-const onFormSubmit = () => {
-      console.log(subject.value);
-      formData = {
-          "descr": description.value,
-          "item_name": subject.value,
-          "assignee": "karand",
-          "requester": "johnd",
-          "loc": "Roof, Building 25"
-       };
-
-       console.log(formData);
-
-       axios.post('http://127.0.0.1:5000/api/item',{
-                  
-                      "descr": description.value,
-                      "item_name": subject.value,
-                      "assignee": "karand",
-                      "requester": "johnd",
-                      "loc": "Roof, Building 25"
-                  
-                })
-                .then(function (response) {
-                  // handle success
-                  // console.log(response.data.items);
-
-                })
-                .catch(function (error) {
-                  // handle error
-                  console.log(error);
-                })
-                .finally(function () {
-                  // always executed
-                });
- }
+/*
+  Methods
+*/
+function onFormSubmit(){
+  console.log(subject.value);
+  formData = {
+    "descr": description.value,
+    "item_name": subject.value,
+    "assignee": "karand",
+    "requester": "johnd",
+    "loc": "Roof, Building 25"
+};
+storeItems.postItem_API();
+console.log(formData);
+}
 
 </script>

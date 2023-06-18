@@ -1,8 +1,8 @@
 <template>
+<button type="button" @click="storeItems.increment" name="Click">Click</button>
     <div class="grid">
-        <button type="button" @click="increment" name="Click">Click</button>
-            <div class="col">{{store.doubleCount}}
-                   <DataTable :value="store.workOrders" tableStyle="min-width: 50rem">
+            <div class="col">
+                   <DataTable :value="storeItems.items" tableStyle="min-width: 50rem">
                     <Column field="item_id" header="Work Order ID"></Column>
                     <Column field="item_name" header="Subject"></Column>
                     <Column field="descr" header="Description"></Column>
@@ -20,25 +20,19 @@
 /*
   imports
 */
-
-import { useWorkOrderStore } from '.././store/workorderStore';
-import { ref, onMounted } from 'vue';
-
+import { useItemsStore } from '@/stores/itemsStore';
 
 /*
 Store
 */
 
-const store = useWorkOrderStore();
+const storeItems = useItemsStore();
 
 /*
   Hooks
 */
 
-onMounted(() => {
-  store.getWorkOrderList();
-  store.increment();
-});
+storeItems.getItemsList_API();
 
 
 </script>

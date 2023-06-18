@@ -12,7 +12,7 @@
   */
 
 
-import TheNavigation from './components/TheNavigation.vue'
+import TheNavigation from '@/components/TheNavigation.vue'
 // import TheList from './components/TheDashboard.vue'
 
 

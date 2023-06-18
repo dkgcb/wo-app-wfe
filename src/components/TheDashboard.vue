@@ -1,8 +1,13 @@
 <template>
+
+
   <div>
-   <!-- <learn></learn> -->
-   <!-- <the-form></the-form> -->
-   <the-table></the-table>
+    <div v-show="!showTheForm" class="col">
+      <Button label="+New Item" @click.prevent="addNewItem" type="submit" />
+    </div>
+    <!-- <learn></learn> -->
+    <the-form v-show="showTheForm"></the-form>
+    <the-table></the-table>
   </div>
 </template> 
 
@@ -11,13 +16,21 @@
   imports
 */
 // import Learn from './Learn.vue'
-// import TheForm from './TheForm.vue'
-import TheTable from './TheTable.vue'
+import TheForm from '@/components/TheForm.vue'
+import TheTable from '@/components/TheTable.vue'
+import router from '@/router'
+import { ref } from 'vue'
 
 /*
-
-
+  Methods
 */
+const showTheForm = ref(false);
+
+function addNewItem() {
+  console.log("addNewItem");
+  // router.push({ path: '/item/new' });
+  showTheForm.value = true;
+};
 
 
 
