@@ -6,7 +6,7 @@
       <Button label="+New Item" @click.prevent="addNewItem" type="submit" />
     </div>
     <!-- <learn></learn> -->
-    <the-form v-show="showTheForm"></the-form>
+    <the-form v-show="showTheForm" @close-form="showTheForm = false"></the-form>
     <the-table></the-table>
   </div>
 </template> 

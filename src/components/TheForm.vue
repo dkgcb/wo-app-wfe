@@ -14,11 +14,10 @@
             </div>
         </div>
         <div class="col">
-            <Button label="Submit" type="submit" />
+            <Button label="Submit" type="submit" size="small" @click.prevent="onFormSubmit" />
+            &nbsp;<Button label="Cancel" severity="danger" size="small" type="cancel" @click.prevent="$emit('closeForm')"  />
         </div>
-        <div class="col">
-            <Button label="Cancel" type="cancel"  />
-        </div>
+
     </form>
   </div>
 </template> 
@@ -53,6 +52,8 @@ function onFormSubmit(){
     "requester": "johnd",
     "loc": "Roof, Building 25"
 };
+
+
 storeItems.postItem_API();
 console.log(formData);
 }
