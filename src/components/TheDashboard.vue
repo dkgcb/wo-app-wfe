@@ -3,7 +3,7 @@
 
   <div>
     <div v-show="!showTheForm" class="col">
-      <Button label="+New Item" @click.prevent="addNewItem" type="submit" />
+      <Button label="New Item" @click.prevent="addNewItem" type="submit" > <i class="pi pi-plus" style="color: white; font-size: 1rem" ></i> New Item</Button>
     </div>
     <!-- <learn></learn> -->
     <the-form v-show="showTheForm" @close-form="showTheForm = false"></the-form>

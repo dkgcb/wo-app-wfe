@@ -1,5 +1,4 @@
 <template>
-<button type="button" @click="storeItems.increment" name="Click">Click</button>
     <div class="grid">
             <div class="col">
                    <DataTable :value="storeItems.items" tableStyle="min-width: 50rem">

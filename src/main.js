@@ -5,6 +5,7 @@ import router from './router' // will automatically look for index.js
 
 import PrimeVue from 'primevue/config';
 import Button from "primevue/button";
+import MultiSelect from "primevue/multiselect"
 import InputText from  "primevue/inputtext";
 import Toast from "primevue/toast";
 import ToastService from "primevue/toastservice";
@@ -39,6 +40,7 @@ app.use(ToastService)
 // app.use(axios)
 
 app.component('Button', Button)
+app.component('MultiSelect', MultiSelect)
 app.component('InputText', InputText)
 app.component('Toast', Toast)
 app.component('DataTable', DataTable)

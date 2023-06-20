@@ -9,6 +9,11 @@ export const useItemsStore = defineStore('itemsStore', {
             count: 0,
             items: [],
             item: "",
+            locations: {
+                "1": "East Building",
+                "2": "West Building",
+                "3": "North Building"
+            }
     }),
     actions: {
         increment() {

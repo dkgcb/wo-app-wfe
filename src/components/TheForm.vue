@@ -7,6 +7,13 @@
                 <input id="subject" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary">
             </div>
         </div>
+          <div class="field">
+            <label for="loc" class="col-fixed" style="width:100px">Location</label>
+            <div class="col"> 
+              <MultiSelect v-model="selectedLocation" display="chip" :options="locations" optionLabel="name" placeholder="Select Location"
+                :maxSelectedLabels="3" class="w-full md:w-20rem" />
+            </div>
+        </div>
         <div class="field">
             <label for="description" class="col-fixed" style="width:100px">Description</label>
             <div class="col">
@@ -55,6 +62,16 @@ function onFormSubmit(){
 
 
 storeItems.postItem_API();
+
+const selectedLocation = ref();
+
+const locations = ref([
+    { name: 'West Building', code: 'WB' },
+    { name: 'East Building', code: 'EB' },
+    { name: 'North Building', code: 'NB' },
+    { name: 'Condo Street', code: 'CS' },
+]);
+
 console.log(formData);
 }
 
